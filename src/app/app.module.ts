@@ -9,11 +9,10 @@ import { ARView } from '../pages/ar-view/ar-view';
 
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
-<<<<<<< HEAD
 import { ComponentsModule } from '../components/components.module';
-=======
 import { MapaPage } from '../pages/mapa/mapa';
->>>>>>> 9b3fb75e365470c9049d92efc3c7649d885a48f9
+import { UsuarioProvider } from '../providers/usuario/usuario';
+import { PositProvider } from '../providers/posit/posit';
 
 @NgModule({
   declarations: [
@@ -31,16 +30,15 @@ import { MapaPage } from '../pages/mapa/mapa';
   entryComponents: [
     MyApp,
     HomePage,
-<<<<<<< HEAD
-    PopoverComponent
-=======
+    PopoverComponent,
     ARView
->>>>>>> 9b3fb75e365470c9049d92efc3c7649d885a48f9
   ],
   providers: [
     StatusBar,
     SplashScreen,
-    { provide: ErrorHandler, useClass: IonicErrorHandler }
+    { provide: ErrorHandler, useClass: IonicErrorHandler },
+    UsuarioProvider,
+    PositProvider
   ]
 })
 export class AppModule { }
