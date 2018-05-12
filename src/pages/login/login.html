@@ -1,0 +1,39 @@
+<ion-content>
+  <div text-center	 padding class="login-header">
+    <img src="assets/imgs/logo.jpg" >
+  </div>
+  <div class="login-container" padding>
+    <ion-segment [(ngModel)]="form" color="secondary" class="login-segment">
+      <ion-segment-button value="acceso">
+        Acceso
+      </ion-segment-button>   
+    </ion-segment>
+
+    <div [ngSwitch]="form">
+      <form *ngSwitchCase="'acceso'">      
+        <ion-item>
+          <ion-label fixed>
+            <ion-icon name="at"></ion-icon>
+             Email
+          </ion-label>
+          <ion-input  name="email" type="email" ></ion-input>
+        </ion-item>
+        <ion-item>
+          <ion-label fixed>
+            <ion-icon name="lock"></ion-icon>
+             Contraseña
+            </ion-label>
+          <ion-input name="pass" type="password">
+          </ion-input>
+        </ion-item>
+        <button ion-button icon-end  block (click)="login()" type="submit" class="uppercase button-grad">
+          Entrar
+          <ion-icon name="log-in" style="margin-right:5px;"></ion-icon>
+        </button>
+        <button ion-button clear round block class="lowercase button-pass">
+          ¿No recuerdas tu contraseña?
+        </button>   
+      </form>     
+    </div>    
+  </div>
+</ion-content>

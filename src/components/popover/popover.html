@@ -1,0 +1,6 @@
+<ion-list class="popover-list">
+  <button ion-item *ngFor="let p of pages" (click)="openPage(p)" class="popover-menu">
+      {{p.title}}                
+  <ion-icon item-end name="{{p.icon}}"></ion-icon>
+  </button>       
+</ion-list>
