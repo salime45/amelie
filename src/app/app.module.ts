@@ -2,6 +2,7 @@ import { PopoverComponent } from './../components/popover/popover';
 import { NgModule, ErrorHandler } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { IonicApp, IonicModule, IonicErrorHandler } from 'ionic-angular';
+import { Geolocation } from '@ionic-native/geolocation';
 import { MyApp } from './app.component';
 
 import { ARView } from '../pages/ar-view/ar-view';
@@ -39,6 +40,7 @@ import { ProvidersModule } from '../providers/providers.module';
     StatusBar,
     SplashScreen,
     { provide: ErrorHandler, useClass: IonicErrorHandler },
-]
+    Geolocation,
+  ]
 })
 export class AppModule { }
