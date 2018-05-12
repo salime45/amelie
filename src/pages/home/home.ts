@@ -1,3 +1,4 @@
+import { ARView } from './../ar-view/ar-view';
 import { Component } from '@angular/core';
 import { NavController } from 'ionic-angular';
 
@@ -14,5 +15,9 @@ export class HomePage {
 
   openMap(){
     this.navCtrl.push('MapaPage')
+  }
+
+  openAR(){
+    this.navCtrl.push(ARView)
   }
 }
