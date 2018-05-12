@@ -21,7 +21,8 @@ export class MyApp {
       // Here you can do any higher level native things you might need.
       //statusBar.styleDefault();
       this.usuarioProvider.Session.subscribe(session => {
-        if (session) {
+        this.rootPage = "HomePage";
+        /*if (session) {
           this.rootPage = "HomePage";
           if (this.platform.is('cordova')) {
             this.initRealityPlugin()
@@ -30,9 +31,9 @@ export class MyApp {
         } else {
           this.rootPage = 'LoginPage';
 
-        }
+        }*/
       });
-      splashScreen.hide();    
+      splashScreen.hide();
 
     });
   }
