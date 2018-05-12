@@ -3,14 +3,8 @@
     <img src="assets/imgs/logo.jpg" >
   </div>
   <div class="login-container" padding>
-    <ion-segment [(ngModel)]="form" color="secondary" class="login-segment">
-      <ion-segment-button value="acceso">
-        Acceso
-      </ion-segment-button>   
-    </ion-segment>
-
-    <div [ngSwitch]="form">
-      <form *ngSwitchCase="'acceso'">      
+   
+      <form >      
         <ion-item>
           <ion-label fixed>
             <ion-icon name="at"></ion-icon>
@@ -33,7 +27,6 @@
         <button ion-button clear round block class="lowercase button-pass">
           ¿No recuerdas tu contraseña?
         </button>   
-      </form>     
-    </div>    
+      </form>          
   </div>
 </ion-content>

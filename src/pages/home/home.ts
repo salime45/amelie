@@ -1,8 +1,9 @@
 import { PopoverComponent } from './../../components/popover/popover';
 import { ARView } from './../ar-view/ar-view';
 import { Component } from '@angular/core';
-import { NavController, PopoverController } from 'ionic-angular';
+import { NavController, PopoverController, IonicPage } from 'ionic-angular';
 
+@IonicPage()
 @Component({
   selector: 'page-home',
   templateUrl: 'home.html'

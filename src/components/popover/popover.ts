@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { ViewController, App } from 'ionic-angular';
+import { UsuarioProvider } from '../../providers/usuario/usuario';
 
 /**
  * Generated class for the PopoverComponent component.
@@ -18,6 +19,8 @@ export class PopoverComponent {
   constructor(
     public viewCtrl: ViewController,
     public app: App,
+    public auth: UsuarioProvider,
+
   ) {
     this.pages = [
       { title: 'Salir', component: "LoginPage", icon: 'exit' },
@@ -28,7 +31,7 @@ export class PopoverComponent {
     this.viewCtrl.dismiss();
     this.app.getRootNavs()[0].push(page.component);
     if (page.component == "LoginPage") {
-      //this.auth.logout();
+      this.auth.logout();
     }
   }
 
