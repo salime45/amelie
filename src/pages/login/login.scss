@@ -1,0 +1,48 @@
+page-login {
+    //Imagen de Fondo para la pantalla de Login
+    ion-content{
+        background-image:url("../assets/imgs/back_login.jpg");
+        background-repeat: no-repeat;
+        background-size: cover;
+        background-position: 50% 50%;
+    }
+
+    //Lo referente al contenedor con los inputs
+    .login-container{
+        min-height: 60vh;
+    }
+    .login-container ion-item{
+        background: white;
+        border-radius: 20px;
+        margin-bottom: 16px;
+    }
+    .login-container ion-item ion-label{
+        margin-left: 1em!important;
+    }
+    .login-container button{
+        border-radius: 20px;
+        color:white;
+        margin: 0;
+        padding: 1.6em;
+    }
+    .login-container button.button-pass{
+        margin-top:16px;
+    }
+
+    //Contenedor superior con logotipo   
+    #login-header img{
+        width: 23em;
+        height: 11em;
+    }
+    #login-header{
+        height: 40vh;
+        background: rgba(255,255,255,0.2);
+        text-align: center;
+        padding: 5vh;
+    }
+    
+    //Barra con botones segments
+    .login-segment{
+        margin-bottom: 2em;
+    }
+}
