@@ -26,6 +26,7 @@ export class PositProvider {
   }
 
   guardarPosit(e: Posit) {
+<<<<<<< Updated upstream
 
     if (e.id == '') {
       e.usuario = this.usuarioProvider.getUserId()
@@ -38,6 +39,13 @@ export class PositProvider {
       e.longitud = resp.coords.longitude
       return this.angularFireDatabase.collection(this.rootPath).doc(e.id).set(Object.assign({}, e))
     })
+=======
+    return this.angularFireDatabase.collection(this.rootPath).doc(e.id).set(Object.assign({}, e))
+>>>>>>> Stashed changes
+  }
+
+  getAllPosit() {
+    return this.angularFireDatabase.collection(this.rootPath).valueChanges()
   }
 
 }
