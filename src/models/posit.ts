@@ -3,6 +3,7 @@ export class Posit {
     constructor(
       public id: string = '',
       public text: string = '',
+      public usuario: string = '',
       public latitud: Number = 0.0,
       public longitud: Number = 0.0,
       public orientacion: Number = 0.0,
@@ -10,7 +11,7 @@ export class Posit {
       public accY: Number = 0.0,
       public accZ: Number = 0.0
     ) {
-  
-    }  
-  
+
+    }
+
   }

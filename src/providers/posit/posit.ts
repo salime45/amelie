@@ -1,4 +1,4 @@
-import { HttpClient } from '@angular/common/http';
+import { UsuarioProvider } from './../usuario/usuario';
 import { Injectable } from '@angular/core';
 import { Posit } from '../../models/posit';
 import { AngularFirestore } from 'angularfire2/firestore';
@@ -14,10 +14,20 @@ export class PositProvider {
 
   private rootPath = "/posit/"
 
-  constructor(public angularFireDatabase: AngularFirestore,) {
+  constructor(
+    public angularFireDatabase: AngularFirestore,
+    public usuarioProvider: UsuarioProvider
+  ) {
+    angularFireDatabase.firestore.settings({ timestampsInSnapshots: true });
+
   }
 
-  guardarPosit(e: Posit) {  
+  guardarPosit(e: Posit) {
+
+    if (e.id == '') {
+      e.usuario = this.usuarioProvider.getUserId()
+      e.id = e.usuario + new Date().valueOf().toString()
+    }
     return this.angularFireDatabase.collection(this.rootPath).doc(e.id).set(Object.assign({}, e))
   }
 
