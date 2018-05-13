@@ -94,7 +94,7 @@ export class MapaPage {
       (error: any) => console.log(error)
     );
 
-    var subscription = this.deviceMotion.watchAcceleration().subscribe((acceleration: DeviceMotionAccelerationData) => {
+    this.deviceMotion.watchAcceleration().subscribe((acceleration: DeviceMotionAccelerationData) => {
       this.accX = acceleration.x
       this.accY = acceleration.y
       this.accZ = acceleration.z
