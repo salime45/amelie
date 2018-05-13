@@ -17,20 +17,23 @@
 }
 
 .fab {
-  width: 70px;
-  height: 70px;
-  background-color: red;
+  width: 60px;
+  height: 60px;
+  background-color:#bfbfbf;
   border-radius: 50%;
   box-shadow: 0 6px 10px 0 #666;
 
-  font-size: 50px;
-  line-height: 70px;
+  font-size: 40px;
+  line-height: 60px;
   color: white;
   text-align: center;
 
   position: fixed;
-  right: 50px;
-  bottom: 50px;
+  right: 0.5em;
+  bottom: 0.5em;
+
+  text-decoration: none!important;
+
 
  transition: all 0.1s ease-in-out;
 }
@@ -40,6 +43,4 @@
   transform: scale(1.05);
 }
 
-a{
-  text-decoration: none;
-}
+
