@@ -1,32 +1,21 @@
 <ion-content>
-  <div text-center	 padding class="login-header">
-    <img src="assets/imgs/logo.jpg" >
+  <div text-center padding class="login-header">
+    <img src="assets/imgs/logo_largo.png" >
   </div>
-  <div class="login-container" padding>
-   
-      <form >      
-        <ion-item>
-          <ion-label fixed>
-            <ion-icon name="at"></ion-icon>
-             Email
-          </ion-label>
-          <ion-input  name="email" type="email" ></ion-input>
-        </ion-item>
-        <ion-item>
-          <ion-label fixed>
-            <ion-icon name="lock"></ion-icon>
-             Contraseña
-            </ion-label>
-          <ion-input name="pass" type="password">
-          </ion-input>
-        </ion-item>
-        <button ion-button icon-end  block (click)="login()" type="submit" class="uppercase button-grad">
-          Entrar
-          <ion-icon name="log-in" style="margin-right:5px;"></ion-icon>
-        </button>
-        <button ion-button clear round block class="lowercase button-pass">
-          ¿No recuerdas tu contraseña?
-        </button>   
-      </form>          
+  <div class="login-container"  padding>
+        <button ion-button icon-start color="google" block (click)="login()" type="submit" class="">
+          <ion-icon name="logo-google" style="margin-right:-4px;"></ion-icon>
+          oogle Login
+        </button>        
+        <button ion-button icon-start color="facebook" block (click)="login()" type="submit" class="">
+          <ion-icon name="logo-facebook" style="margin-right:-4px;"></ion-icon>
+          acebook Login
+        </button>        
   </div>
 </ion-content>
+<ion-footer no-shadow text-center>
+  <ion-toolbar>
+    <p>Amelie</p>
+    <p>#HEREMapHacks Valencia</p>
+  </ion-toolbar>
+</ion-footer>

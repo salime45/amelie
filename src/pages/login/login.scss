@@ -1,7 +1,7 @@
 page-login {
     //Imagen de Fondo para la pantalla de Login
     ion-content{
-        background-image:url("../assets/imgs/back_login.jpg");
+        background-image:url("../assets/imgs/back-login-b.jpg");
         background-repeat: no-repeat;
         background-size: cover;
         background-position: 50% 50%;
@@ -20,7 +20,6 @@ page-login {
         margin-left: 1em!important;
     }
     .login-container button{
-        border-radius: 20px;
         color:white;
         margin: 0;
         padding: 1.6em;
@@ -30,9 +29,9 @@ page-login {
     }
 
     //Contenedor superior con logotipo   
-    #login-header img{
-        width: 23em;
-        height: 11em;
+    .login-header img{
+        width: 80% !important;
+       
     }
     #login-header{
         height: 40vh;
