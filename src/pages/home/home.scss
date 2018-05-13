@@ -24,7 +24,8 @@ page-home {
         background: rgba(255,255,255,.8);
         color:black
     }
-    .button.activated{
+    .button.activated, .button-md:hover:not(.disable-hover){
         background: rgba(255,255,255,0.6)!important
     }
+    
 }
