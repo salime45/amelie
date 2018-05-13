@@ -84,4 +84,8 @@
     <plugin name="com.wikitude.phonegap.WikitudePlugin" spec=".\Wikitude_Cordova_Plugin_7-2-1_3-5-2_2018-02-21_15-01-01" />
     <engine name="android" spec="~7.0.0" />
     <allow-navigation href="http://10.236.59.116:8100" />
+    <plugin name="cordova-plugin-geolocation" spec="^4.0.1" />
+    <plugin name="cordova-plugin-device-motion" spec="^2.0.1" />
+    <plugin name="cordova-plugin-device-orientation" spec="^2.0.1" />
+    <engine name="android" spec="7.0.0" />
 </widget>

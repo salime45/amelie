@@ -3,6 +3,8 @@ import { NgModule, ErrorHandler } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { IonicApp, IonicModule, IonicErrorHandler } from 'ionic-angular';
 import { Geolocation } from '@ionic-native/geolocation';
+import { DeviceMotion, DeviceMotionAccelerationData } from '@ionic-native/device-motion';
+import { DeviceOrientation, DeviceOrientationCompassHeading } from '@ionic-native/device-orientation';
 import { MyApp } from './app.component';
 
 import { ARView } from '../pages/ar-view/ar-view';
@@ -41,6 +43,8 @@ import { ProvidersModule } from '../providers/providers.module';
     SplashScreen,
     { provide: ErrorHandler, useClass: IonicErrorHandler },
     Geolocation,
+    DeviceMotion,
+    DeviceOrientation
   ]
 })
 export class AppModule { }

@@ -1,6 +1,8 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams, Platform } from 'ionic-angular';
 import { Geolocation } from '@ionic-native/geolocation';
+import { DeviceMotion, DeviceMotionAccelerationData } from '@ionic-native/device-motion';
+import { DeviceOrientation, DeviceOrientationCompassHeading } from '@ionic-native/device-orientation';
 
 /**
  * Generated class for the MapaPage page.
@@ -19,6 +21,10 @@ declare var H: any;
 export class MapaPage {
 
   mylocation: any;
+  accX: any;
+  accY: any;
+  accZ: any;
+  compass: any;
 
   hereApi = new H.service.Platform({
     'app_id': 'HSe7Gsf76oZd6cACoWLj',
@@ -27,7 +33,13 @@ export class MapaPage {
 
   maptypes = this.hereApi.createDefaultLayers();
 
-  constructor(public navCtrl: NavController, public navParams: NavParams, private geolocation: Geolocation, public platform: Platform) {
+  constructor(public navCtrl: NavController,
+              public navParams: NavParams,
+              private geolocation: Geolocation,
+              public platform: Platform,
+              private deviceOrientation: DeviceOrientation,
+              private deviceMotion: DeviceMotion
+              ) {
   }
 
   ionViewDidLoad() {
@@ -54,7 +66,43 @@ export class MapaPage {
       // let updatelocation = new H.map.Marker(data.coords.latitude,data.coords.longitude);
       this.mylocation.setPosition({ lat: data.coords.latitude, lng: data.coords.longitude });
     });
+
+
+    //Empieza el Compass
+
+    this.deviceOrientation.getCurrentHeading().then(
+      (data: DeviceOrientationCompassHeading) => {
+        this.compass = data.magneticHeading
+      },
+      (error: any) => console.log(error)
+    );
+
+    var subscription = this.deviceOrientation.watchHeading().subscribe(
+      (data: DeviceOrientationCompassHeading) => {
+        this.compass = data.magneticHeading
+      }
+    );
+
+    //Empieza el Accelerometer
+
+    this.deviceMotion.getCurrentAcceleration().then(
+      (acceleration: DeviceMotionAccelerationData) => {
+        this.accX = acceleration.x
+        this.accY = acceleration.y
+        this.accZ = acceleration.z
+      },
+      (error: any) => console.log(error)
+    );
+
+    var subscription = this.deviceMotion.watchAcceleration().subscribe((acceleration: DeviceMotionAccelerationData) => {
+      this.accX = acceleration.x
+      this.accY = acceleration.y
+      this.accZ = acceleration.z
+    });
+
   }
+
+
 
 
 }

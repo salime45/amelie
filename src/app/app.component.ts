@@ -10,7 +10,7 @@ import { SplashScreen } from '@ionic-native/splash-screen';
   templateUrl: 'app.html'
 })
 export class MyApp {
-  rootPage:any = "LoginPage";
+  rootPage:any = "";
 
   constructor(public platform: Platform, statusBar: StatusBar, splashScreen: SplashScreen,
     public usuarioProvider: UsuarioProvider
@@ -21,20 +21,16 @@ export class MyApp {
       // Here you can do any higher level native things you might need.
       //statusBar.styleDefault();
       this.usuarioProvider.Session.subscribe(session => {
-        if (session) {
-            console.log("registrado del todo")
+       if (session) {
           this.rootPage = "HomePage";
-          /*if (this.platform.is('cordova')) {
+          if (this.platform.is('cordova')) {
             this.initRealityPlugin()
-          }*/
-
+          }
         } else {
-
           this.rootPage = 'LoginPage';
-
         }
       });
-      splashScreen.hide();    
+      splashScreen.hide();
 
     });
   }
