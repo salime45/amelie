@@ -18,14 +18,6 @@ export class UsuarioProvider {
   authState: any = null;
 
 
-  public EXP_NUEVO_COMENTARIO: number = 2
-  public EXP_NUEVO_COMENTARIO_WITH_PHOTO: number = 3
-  public EXP_NUEVO_HILO: number = 3
-  public EXP_NUEVO_ANUNCIO: number = 3
-  public EXP_NUEVO_COCHE: number = 2
-  public EXP_NUEVO_EVENTO: number = 3
-
-  public NIVEL_RELATIVO: number = 1
 
 
   
@@ -44,16 +36,6 @@ export class UsuarioProvider {
   }
 
   
-
-  // Registro de usuario
-  registerUser(email: string, pass: string) {
-    return this.afAuth.auth.createUserWithEmailAndPassword(email, pass)
-      .then((res) => {
-        return Promise.resolve(res.G)
-      })
-      .catch(err => Promise.reject(err))
-  }
-
   //  // Login de usuario
   /*loginUser(u: string, pass: string) {
     return this.afAuth.auth.signInWithEmailAndPassword(u.email, pass)
@@ -64,9 +46,46 @@ export class UsuarioProvider {
   }*/
 
   googleLogin() {
-    const provider = new firebase.auth.GoogleAuthProvider()
-    return this.socialSignIn(provider);
+    var provider = new firebase.auth.GoogleAuthProvider();
+    firebase.auth().signInWithRedirect(provider).then( () => {
+    firebase.auth().getRedirectResult().then( result => {
+      // This gives you a Google Access Token.
+      // You can use it to access the Google API.
+      var token = result.credential.accessToken;
+      // The signed-in user info.
+      var user = result.user;
+      console.log(token, user);
+    }).catch(function(error) {
+      // Handle Errors here.
+      console.log(error.message);
+    });
+  });
+    
   }
+  gLogin() {
+    
+    
+  }
+  // Registro de usuario
+  registerUser(email: string, pass: string) {
+    return this.afAuth.auth.createUserWithEmailAndPassword(email, pass)
+      .then((res) => {
+        return Promise.resolve(res.G)
+       })
+      .catch(err => Promise.reject(err))
+  }
+
+  removeUser(){
+
+  }
+
+  // Login de usuario
+  loginUser(email: string, pass: string) {
+    return this.afAuth.auth.signInWithEmailAndPassword(email, pass)
+      .then(user => Promise.resolve(user))
+      .catch(err => Promise.reject(err))
+  }
+
 
   private socialSignIn(provider) {
     return this.afAuth.auth.signInWithPopup(provider)
@@ -76,15 +95,12 @@ export class UsuarioProvider {
       })
       .catch(error => console.log(error));
   }
-
-
+  
 
   // Logout de usuario
   logout() {
-    this.afAuth.auth.signOut();
-  }
-
-  
+    this.afAuth.auth.signOut()
+  }  
 
   // Devuelve la session
   get Session() {
@@ -112,6 +128,11 @@ export class UsuarioProvider {
   // Returns current user UID
   get currentUserId(): string {
     return this.authenticated ? this.authState.uid : '';
+  }
+
+  facebookLogin() {
+    const provider = new firebase.auth.FacebookAuthProvider()
+    return this.socialSignIn(provider);
   }
 
   //// Helpers ////

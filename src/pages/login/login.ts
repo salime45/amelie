@@ -29,8 +29,15 @@ export class LoginPage {
   } 
 
   login() { 
-      this.userProvider.googleLogin();
-  }
-
-  
+      this.userProvider.loginUser("vvalladolid@isvisoft.com", "prueba")
+        .then((user) => { })
+        .catch(err => {
+          let alert = this.alertCtrl.create({
+            title: 'Error',
+            subTitle: 'Sus datos no son correctos, por favor reviselos.',
+            buttons: ['Aceptar']
+          });
+          alert.present();
+        })
+   }  
 }

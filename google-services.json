@@ -1,0 +1,42 @@
+{
+  "project_info": {
+    "project_number": "482502125421",
+    "firebase_url": "https://amelie-f3e7f.firebaseio.com",
+    "project_id": "amelie-f3e7f",
+    "storage_bucket": "amelie-f3e7f.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:482502125421:android:a40cf52a0c94b04c",
+        "android_client_info": {
+          "package_name": "com.isvisoft.amelie"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "482502125421-julkfb745297451m2heljsa7601695j1.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCLc-4m5ZoAAhwfjQ4T3S7rclabO0vdwhg"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 1,
+          "other_platform_oauth_client": []
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
