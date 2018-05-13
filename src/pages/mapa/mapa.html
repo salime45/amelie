@@ -12,7 +12,10 @@
 
 </ion-header>
 
-
-<ion-content padding>
-
+<ion-label style="position: fixed; top: 50px; z-index: 999 ; color: red; font-size: 20px; font-weight: bolder;">AccX : {{ accX }}</ion-label>
+<ion-label style="position: fixed; top: 100px; z-index: 999; color: red; font-size: 20px; font-weight: bolder;">AccY : {{ accY }}</ion-label>
+<ion-label style="position: fixed; top: 150px; z-index: 999; color: red; font-size: 20px; font-weight: bolder;">AccZ : {{ accZ }}</ion-label>
+<ion-label style="position: fixed; top: 200px; z-index: 999; color: red; font-size: 20px; font-weight: bolder;">Compass: {{compass}}</ion-label>
+<ion-content class="map-page">
+  <div style="height: 100%; width: 100%" #mapCanvas id="map_canvas"></div>
 </ion-content>
