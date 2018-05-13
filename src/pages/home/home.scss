@@ -1,3 +1,30 @@
 page-home {
+    ion-content{
+        background: rgba(0,0,0,.1)!important
+    }
 
+    .first-middle{
+        height: 45vh;
+    }
+    .first-middle img{
+        width: 60%;
+    }
+    .second-middle{
+        height: 35vh;
+
+    }
+    .second-middle ion-row{
+        height: 15vh;
+        margin-bottom: 5px;
+    }
+    .button{
+        width: 100%;
+        height: 100%;
+        margin: 0!important;
+        background: rgba(255,255,255,.8);
+        color:black
+    }
+    .button.activated{
+        background: rgba(255,255,255,0.6)!important
+    }
 }

@@ -11,13 +11,20 @@
   </ion-navbar>
 </ion-header>
 
-<ion-content padding>
-  <button ion-item (click)="openMap()">
-    Mapa
-  </button>
-
-  <button ion-item (click)="openAR()">
-    Ar
-  </button>
-
+<ion-content>
+  <div padding text-center class="first-middle">
+    <img src="assets/imgs/mini_logo.png">
+  </div>
+  <div class="second-middle">
+      <ion-row >
+          <button ion-button icon-only (click)="openMap()" class="button-map">
+              <ion-icon name="map"></ion-icon>
+          </button>         
+      </ion-row>
+      <ion-row>
+          <button ion-button icon-only (click)="openAR()" class="button-ar">
+              <ion-icon name="globe"></ion-icon>
+            </button>         
+      </ion-row>      
+  </div>
 </ion-content>

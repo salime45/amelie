@@ -3,6 +3,7 @@ import { IonicPage, NavController, NavParams, Platform } from 'ionic-angular';
 import { Geolocation } from '@ionic-native/geolocation';
 import { DeviceMotion, DeviceMotionAccelerationData } from '@ionic-native/device-motion';
 import { DeviceOrientation, DeviceOrientationCompassHeading } from '@ionic-native/device-orientation';
+import { ARView } from '../ar-view/ar-view';
 
 /**
  * Generated class for the MapaPage page.
@@ -40,6 +41,10 @@ export class MapaPage {
               private deviceOrientation: DeviceOrientation,
               private deviceMotion: DeviceMotion
               ) {
+  }
+
+  gotoAR(){
+    this.navCtrl.push(ARView)
   }
 
   ionViewDidLoad() {
