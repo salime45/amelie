@@ -35,15 +35,15 @@ export class MapaPage {
   maptypes = this.hereApi.createDefaultLayers();
 
   constructor(public navCtrl: NavController,
-              public navParams: NavParams,
-              private geolocation: Geolocation,
-              public platform: Platform,
-              private deviceOrientation: DeviceOrientation,
-              private deviceMotion: DeviceMotion
-              ) {
+    public navParams: NavParams,
+    private geolocation: Geolocation,
+    public platform: Platform,
+    private deviceOrientation: DeviceOrientation,
+    private deviceMotion: DeviceMotion
+  ) {
   }
 
-  gotoAR(){
+  gotoAR() {
     this.navCtrl.push(ARView)
   }
 
@@ -51,18 +51,18 @@ export class MapaPage {
     this.geolocation.getCurrentPosition({ maximumAge: 3000, timeout: 5000, enableHighAccuracy: true }).then((resp) => {
 
 
-    var map = new H.Map(
-      document.getElementById('map_canvas'),
-      this.maptypes.normal.map,
-      {
-        zoom: 12,
-        center: {lng: -0.376989, lat: 39.469836}
-      });
-    this.mylocation = new H.map.Marker({lat: resp.coords.latitude, lng: resp.coords.longitude});
-    map.addObject(this.mylocation);
+      var map = new H.Map(
+        document.getElementById('map_canvas'),
+        this.maptypes.normal.map,
+        {
+          zoom: 12,
+          center: { lng: -0.376989, lat: 39.469836 }
+        });
+      this.mylocation = new H.map.Marker({ lat: resp.coords.latitude, lng: resp.coords.longitude });
+      map.addObject(this.mylocation);
 
-    new H.mapevents.Behavior(new H.mapevents.MapEvents(map));
-    H.ui.UI.createDefault(map, this.maptypes);
+      new H.mapevents.Behavior(new H.mapevents.MapEvents(map));
+      H.ui.UI.createDefault(map, this.maptypes);
 
     });
 
@@ -82,7 +82,7 @@ export class MapaPage {
       (error: any) => console.log(error)
     );
 
-    var subscription = this.deviceOrientation.watchHeading().subscribe(
+    this.deviceOrientation.watchHeading().subscribe(
       (data: DeviceOrientationCompassHeading) => {
         this.compass = data.magneticHeading
       }

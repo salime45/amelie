@@ -261,6 +261,7 @@ var World = {
 
   // reload places from content source
   reloadPlaces: function reloadPlacesFn() {
+
     if (!World.isRequestingData) {
       if (World.userLocation) {
         World.requestDataFromServer(World.userLocation.latitude, World.userLocation.longitude);
@@ -317,3 +318,4 @@ AR.context.onLocationChanged = World.locationChanged;
 
 /* forward clicks in empty area to World */
 AR.context.onScreenClick = World.onScreenClick;
+
