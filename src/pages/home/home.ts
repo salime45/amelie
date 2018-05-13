@@ -2,7 +2,6 @@ import { PopoverComponent } from './../../components/popover/popover';
 import { ARView } from './../ar-view/ar-view';
 import { Component } from '@angular/core';
 import { NavController, PopoverController, IonicPage } from 'ionic-angular';
-import { PositPage } from '../posit/posit';
 
 @IonicPage()
 @Component({

@@ -25,13 +25,15 @@ export class PositPage {
     public positProvider: PositProvider,
     public viewCtrl: ViewController,
 
+
   ) {
   }
 
 
   guardar() {
-    this.positProvider.guardarPosit(this.posit)
-    this.viewCtrl.dismiss();
+
+      this.positProvider.guardarPosit(this.posit)
+      this.viewCtrl.dismiss();
 
   }
 

@@ -1,3 +1,4 @@
+import { Geolocation } from '@ionic-native/geolocation';
 import { UsuarioProvider } from './../usuario/usuario';
 import { Injectable } from '@angular/core';
 import { Posit } from '../../models/posit';
@@ -16,7 +17,9 @@ export class PositProvider {
 
   constructor(
     public angularFireDatabase: AngularFirestore,
-    public usuarioProvider: UsuarioProvider
+    public usuarioProvider: UsuarioProvider,
+    public geolocation: Geolocation,
+
   ) {
     angularFireDatabase.firestore.settings({ timestampsInSnapshots: true });
 
@@ -28,7 +31,13 @@ export class PositProvider {
       e.usuario = this.usuarioProvider.getUserId()
       e.id = e.usuario + new Date().valueOf().toString()
     }
-    return this.angularFireDatabase.collection(this.rootPath).doc(e.id).set(Object.assign({}, e))
+
+    this.geolocation.getCurrentPosition({ maximumAge: 3000, timeout: 5000, enableHighAccuracy: true }).then((resp) => {
+
+      e.latitud = resp.coords.latitude
+      e.longitud = resp.coords.longitude
+      return this.angularFireDatabase.collection(this.rootPath).doc(e.id).set(Object.assign({}, e))
+    })
   }
 
 }
