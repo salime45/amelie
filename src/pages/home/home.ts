@@ -2,6 +2,7 @@ import { PopoverComponent } from './../../components/popover/popover';
 import { ARView } from './../ar-view/ar-view';
 import { Component } from '@angular/core';
 import { NavController, PopoverController, IonicPage } from 'ionic-angular';
+import { PositPage } from '../posit/posit';
 
 @IonicPage()
 @Component({
@@ -11,7 +12,7 @@ import { NavController, PopoverController, IonicPage } from 'ionic-angular';
 export class HomePage {
 
   constructor(public navCtrl: NavController,
-  public popoverCtrl: PopoverController) {
+    public popoverCtrl: PopoverController) {
 
   }
 
@@ -23,11 +24,16 @@ export class HomePage {
     });
   }
 
-  openMap(){
+  openMap() {
     this.navCtrl.push('MapaPage')
   }
 
-  openAR(){
+  openAR() {
     this.navCtrl.push(ARView)
+  }
+
+  nuevoPosit() {
+    this.navCtrl.push("PositPage")
+
   }
 }
