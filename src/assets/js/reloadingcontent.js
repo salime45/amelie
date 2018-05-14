@@ -51,15 +51,18 @@ var World = {
     World.markerDrawable_selected = new AR.ImageResource("assets/marker_selected.png");
     World.markerDrawable_directionIndicator = new AR.ImageResource("assets/indi.png");
 
+
     // loop through POI-information and create an AR.GeoObject (=Marker) per POI
     for (var currentPlaceNr = 0; currentPlaceNr < poiData.length; currentPlaceNr++) {
+
       var singlePoi = {
         "id": poiData[currentPlaceNr].id,
-        "latitude": parseFloat(poiData[currentPlaceNr].latitude),
-        "longitude": parseFloat(poiData[currentPlaceNr].longitude),
+        "latitude": parseFloat(poiData[currentPlaceNr].latitud),
+        "longitude": parseFloat(poiData[currentPlaceNr].longitud),
         "altitude": parseFloat(poiData[currentPlaceNr].altitude),
-        "title": poiData[currentPlaceNr].name,
-        "description": poiData[currentPlaceNr].description
+        // "title": poiData[currentPlaceNr].name,
+        "title": "Vicente Valladolid",
+        "description": poiData[currentPlaceNr].text
       };
 
       World.markerList.push(new Marker(singlePoi));
@@ -118,6 +121,7 @@ var World = {
 
     // request data if not already present
     if (!World.initiallyLoadedData) {
+      $("#coords").text(lat + " and " + lon)
       World.requestDataFromServer(lat, lon);
       World.initiallyLoadedData = true;
     } else if (World.locationUpdateCounter === 0) {
@@ -262,6 +266,7 @@ var World = {
   // reload places from content source
   reloadPlaces: function reloadPlacesFn() {
 
+    alert("reload")
     if (!World.isRequestingData) {
       if (World.userLocation) {
         World.requestDataFromServer(World.userLocation.latitude, World.userLocation.longitude);
@@ -281,9 +286,11 @@ var World = {
     World.updateStatusMessage('Requesting places from web-service');
 
     // server-url to JSON content provider
-    var serverUrl = ServerInformation.POIDATA_SERVER + "?" + ServerInformation.POIDATA_SERVER_ARG_LAT + "=" + lat + "&" + ServerInformation.POIDATA_SERVER_ARG_LON + "=" + lon + "&" + ServerInformation.POIDATA_SERVER_ARG_NR_POIS + "=20";
+    // var serverUrl = ServerInformation.POIDATA_SERVER + "?" + ServerInformation.POIDATA_SERVER_ARG_LAT + "=" + lat + "&" + ServerInformation.POIDATA_SERVER_ARG_LON + "=" + lon + "&" + ServerInformation.POIDATA_SERVER_ARG_NR_POIS + "=20";
+    var serverUrl = "https://us-central1-amelie-f3e7f.cloudfunctions.net/getPosits";
 
     var jqxhr = $.getJSON(serverUrl, function (data) {
+
         World.loadPoisFromJsonData(data);
       })
       .error(function (err) {
@@ -310,6 +317,8 @@ var World = {
     return b.distanceToUser - a.distanceToUser;
   }
 
+
+
 };
 
 
@@ -318,4 +327,3 @@ AR.context.onLocationChanged = World.locationChanged;
 
 /* forward clicks in empty area to World */
 AR.context.onScreenClick = World.onScreenClick;
-
